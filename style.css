@@ -1,0 +1,8 @@
+.col-sm {
+  border-radius: 10px;
+  height: 200px;
+  cursor: pointer;
+  background-color: black;
+  margin: 20px;
+  display: flex;
+}
