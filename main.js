@@ -1,6 +1,6 @@
-const $cartas = document.querySelectorAll(".col-sm");
+const $cartas = document.querySelectorAll(".carta");
 
-const colores = ["rojo", "azul", "verde", "amarillo", "negro", "blanco"];
+const colores = ["rojo", "azul", "verde", "amarillo", "morado", "naranja"];
 
 function obtenerNumeroAleatorio() {
   return Math.round(Math.random() * 11);
@@ -14,11 +14,23 @@ function asignarColorAleatorioCartas() {
         numeroAleatorio = obtenerNumeroAleatorio();
       }
       $cartas[numeroAleatorio].id = colores[i];
-      /* if ($cartas[numeroAleatorio].id === "") {
-        $cartas[numeroAleatorio].id = colores[i];
-      } */
     }
   }
 }
 
 asignarColorAleatorioCartas();
+
+let cartasSeleccionadas = [];
+
+function manejarInputJugador(e) {
+  const $carta = e.target;
+
+  if (cartasSeleccionadas.length < 2) {
+    cartasSeleccionadas.push($carta.id);
+  }
+  if (cartasSeleccionadas.length === 2) {
+    verificarCoincidencias();
+    console.log(verificarCoincidencias());
+  }
+}
+
