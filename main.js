@@ -34,3 +34,14 @@ function manejarInputJugador(e) {
   }
 }
 
+$cartas.forEach(function ($carta) {
+  $carta.onclick = manejarInputJugador;
+});
+
+function verificarCoincidencias() {
+  if (cartasSeleccionadas[0] === cartasSeleccionadas[1]) {
+    return true;
+  } else {
+    return false;
+  }
+}
