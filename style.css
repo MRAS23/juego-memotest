@@ -1,8 +1,35 @@
-.col-sm {
+.carta {
   border-radius: 10px;
   height: 200px;
   cursor: pointer;
   background-color: black;
   margin: 20px;
-  display: flex;
+}
+
+.carta:hover {
+  background-color: aquamarine;
+}
+
+#rojo {
+  background-color: red;
+}
+
+#azul {
+  background-color: blue;
+}
+
+#verde {
+  background-color: green;
+}
+
+#amarillo {
+  background-color: yellow;
+}
+
+#morado {
+  background-color: purple;
+}
+
+#naranja {
+  background-color: orange;
 }
