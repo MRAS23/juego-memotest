@@ -6,30 +6,30 @@
   margin: 20px;
 }
 
-.carta:hover {
+/* .carta:hover {
   background-color: aquamarine;
+} */
+
+#red {
+  background-color: black;
 }
 
-#rojo {
-  background-color: red;
+#blue {
+  background-color: black;
 }
 
-#azul {
-  background-color: blue;
+#green {
+  background-color: black;
 }
 
-#verde {
-  background-color: green;
+#yellow {
+  background-color: black;
 }
 
-#amarillo {
-  background-color: yellow;
+#purple {
+  background-color: black;
 }
 
-#morado {
-  background-color: purple;
-}
-
-#naranja {
-  background-color: orange;
+#orange {
+  background-color: black;
 }
