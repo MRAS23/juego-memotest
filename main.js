@@ -1,6 +1,6 @@
 const $cartas = document.querySelectorAll(".carta");
 
-const colores = ["rojo", "azul", "verde", "amarillo", "morado", "naranja"];
+const colores = ["red", "blue", "green", "yellow", "purple", "orange"];
 
 function obtenerNumeroAleatorio() {
   return Math.round(Math.random() * 11);
@@ -25,12 +25,15 @@ let cartasSeleccionadas = [];
 function manejarInputJugador(e) {
   const $carta = e.target;
 
+  mostrarCarta($carta);
+
   if (cartasSeleccionadas.length < 2) {
     cartasSeleccionadas.push($carta.id);
   }
   if (cartasSeleccionadas.length === 2) {
     verificarCoincidencias();
     console.log(verificarCoincidencias());
+    cartasSeleccionadas = [];
   }
 }
 
@@ -44,4 +47,12 @@ function verificarCoincidencias() {
   } else {
     return false;
   }
+}
+
+function mostrarCarta($carta) {
+  $carta.style.backgroundColor = $carta.id;
+
+  setTimeout(function () {
+    $carta.style.backgroundColor = "black";
+  }, 500);
 }
