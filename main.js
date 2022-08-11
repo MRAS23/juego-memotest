@@ -30,8 +30,16 @@ function manejarInputJugador(e) {
   if (cartasSeleccionadas.length < 2) {
     cartasSeleccionadas.push($carta.id);
   }
+
   if (cartasSeleccionadas.length === 2) {
-    verificarCoincidencias();
+    if (verificarCoincidencias()) {
+      eliminarColorAcertado();
+      cartasSeleccionadas = [];
+    }
+    setTimeout(() => {
+      ocultarCartas();
+    }, 1000);
+
     console.log(verificarCoincidencias());
     cartasSeleccionadas = [];
   }
@@ -53,8 +61,21 @@ function mostrarCarta($carta) {
   $carta.style.backgroundColor = $carta.id;
 
   setTimeout(function () {
+  /* setTimeout(function () {
     $carta.style.backgroundColor = "black";
   }, 500);
+  }, 500); */
+}
+
+function ocultarCartas() {
+  $cartas.forEach(($carta) => {
+    colores.forEach((color) => {
+      if ($carta.id === color) {
+        $carta.style.backgroundColor = "black";
+      }
+    });
+  });
+}
 
 function eliminarColorAcertado() {
   for (let i = 0; i < colores.length; i++) {
