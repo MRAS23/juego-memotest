@@ -15,6 +15,16 @@ function ganarJuego() {
   mostrarBotonVolverJugar();
 }
 
+document.querySelector("#boton-reiniciar-juego").onclick = reiniciarJuego;
+
+function reiniciarJuego() {
+  colores = ["red", "blue", "green", "yellow", "purple", "orange"];
+  ocultarTodasLasCartas();
+  asignarColorAleatorioCartas();
+  contadorMovimientos = 0;
+  mostrarTablero();
+}
+
 function obtenerNumeroAleatorio() {
   return Math.round(Math.random() * 11);
 }
@@ -54,8 +64,6 @@ function manejarInputJugador(e) {
       ocultarCartas();
       desbloquearInputJugador();
     }, 1000);
-
-    console.log(verificarCoincidencias());
     cartasSeleccionadas = [];
     if (colores.length === 0) {
       ganarJuego();
