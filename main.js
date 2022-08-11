@@ -81,6 +81,13 @@ function ocultarCartas() {
   });
 }
 
+function ocultarTodasLasCartas() {
+  $cartas.forEach(($carta) => {
+    $carta.style.backgroundColor = "black";
+    $carta.id = "";
+  });
+}
+
 function eliminarColorAcertado() {
   for (let i = 0; i < colores.length; i++) {
     if (colores[i] === cartasSeleccionadas[1]) {
