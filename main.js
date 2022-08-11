@@ -37,12 +37,14 @@ function manejarInputJugador(e) {
   }
 
   if (cartasSeleccionadas.length === 2) {
+    bloquearInputJugador();
     if (verificarCoincidencias()) {
       eliminarColorAcertado();
       cartasSeleccionadas = [];
     }
     setTimeout(() => {
       ocultarCartas();
+      desbloquearInputJugador();
     }, 1000);
 
     console.log(verificarCoincidencias());
@@ -92,4 +94,16 @@ function mostrarTablero() {
 function ocultarTablero() {
   const $tablero = document.querySelector("#tablero");
   $tablero.className = "oculto";
+}
+
+function bloquearInputJugador() {
+  $cartas.forEach(function ($carta) {
+    $carta.onclick = function () {};
+  });
+}
+
+function desbloquearInputJugador() {
+  $cartas.forEach(function ($carta) {
+    $carta.onclick = manejarInputJugador;
+  });
 }
