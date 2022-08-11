@@ -1,6 +1,6 @@
 const $cartas = document.querySelectorAll(".carta");
 
-const colores = ["red", "blue", "green", "yellow", "purple", "orange"];
+let colores = ["red", "blue", "green", "yellow", "purple", "orange"];
 
 function obtenerNumeroAleatorio() {
   return Math.round(Math.random() * 11);
