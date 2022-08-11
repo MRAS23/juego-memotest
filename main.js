@@ -10,6 +10,11 @@ function iniciarJuego() {
   mostrarTablero();
 }
 
+function ganarJuego() {
+  ocultarTablero();
+  mostrarBotonVolverJugar();
+}
+
 function obtenerNumeroAleatorio() {
   return Math.round(Math.random() * 11);
 }
@@ -52,6 +57,9 @@ function manejarInputJugador(e) {
 
     console.log(verificarCoincidencias());
     cartasSeleccionadas = [];
+    if (colores.length === 0) {
+      ganarJuego();
+    }
   }
 }
 
