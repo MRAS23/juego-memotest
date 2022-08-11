@@ -60,10 +60,8 @@ function verificarCoincidencias() {
 function mostrarCarta($carta) {
   $carta.style.backgroundColor = $carta.id;
 
-  setTimeout(function () {
   /* setTimeout(function () {
     $carta.style.backgroundColor = "black";
-  }, 500);
   }, 500); */
 }
 
