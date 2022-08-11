@@ -89,13 +89,10 @@ function eliminarColorAcertado() {
 }
 
 function mostrarTablero() {
-  const $tablero = document.querySelector("#tablero");
-  $tablero.className = "container";
+  document.querySelector("#tablero").className = "container";
 }
 
 function ocultarTablero() {
-  const $tablero = document.querySelector("#tablero");
-  $tablero.className = "oculto";
 }
 
 function bloquearInputJugador() {
