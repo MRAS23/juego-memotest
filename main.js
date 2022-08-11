@@ -5,14 +5,17 @@ let colores = ["red", "blue", "green", "yellow", "purple", "orange"];
 document.querySelector("#boton-jugar").onclick = iniciarJuego;
 
 function iniciarJuego() {
+  inicializarCantidadMovimientos();
   ocultarBotonJugar();
   asignarColorAleatorioCartas();
   mostrarTablero();
+  mostrarContadorMovimientos();
 }
 
 function ganarJuego() {
   ocultarTablero();
   mostrarBotonVolverJugar();
+  actualizarMensajeContadorMovimientos();
 }
 
 document.querySelector("#boton-reiniciar-juego").onclick = reiniciarJuego;
@@ -21,7 +24,7 @@ function reiniciarJuego() {
   colores = ["red", "blue", "green", "yellow", "purple", "orange"];
   ocultarTodasLasCartas();
   asignarColorAleatorioCartas();
-  contadorMovimientos = 0;
+  inicializarCantidadMovimientos();
   ocultarBotonVolverJugar();
   mostrarTablero();
 }
@@ -43,7 +46,7 @@ function asignarColorAleatorioCartas() {
 }
 
 let cartasSeleccionadas = [];
-let contadorMovimientos = 0;
+let $contadorMovimientos = document.querySelector("#contador-movimientos");
 
 function manejarInputJugador(e) {
   const $carta = e.target;
@@ -56,7 +59,7 @@ function manejarInputJugador(e) {
 
   if (cartasSeleccionadas.length === 2) {
     bloquearInputJugador();
-    contadorMovimientos++;
+    contarMovimiento();
     if (verificarCoincidencias()) {
       eliminarColorAcertado();
       cartasSeleccionadas = [];
@@ -129,8 +132,20 @@ function ocultarBotonVolverJugar() {
   document.querySelector("#boton-reiniciar-juego").className = "oculto";
 }
 
+function mostrarBotonJugar() {
+  document.querySelector("#boton-jugar").className = "";
+}
+
 function ocultarBotonJugar() {
   document.querySelector("#boton-jugar").className = "oculto";
+}
+
+function mostrarContadorMovimientos() {
+  $contadorMovimientos.className = "";
+}
+
+function ocultarContadorMovimientos() {
+  $contadorMovimientos.className = "oculto";
 }
 
 function bloquearInputJugador() {
@@ -143,4 +158,17 @@ function desbloquearInputJugador() {
   $cartas.forEach(function ($carta) {
     $carta.onclick = manejarInputJugador;
   });
+}
+
+function inicializarCantidadMovimientos() {
+  $contadorMovimientos.innerHTML = 0;
+}
+
+function contarMovimiento() {
+  $contadorMovimientos.innerHTML++;
+}
+
+function actualizarMensajeContadorMovimientos() {
+  const cantidadMovimientos = $contadorMovimientos.innerHTML;
+  $contadorMovimientos.innerHTML = `Ganaste en ${cantidadMovimientos} movimientos!`;
 }
