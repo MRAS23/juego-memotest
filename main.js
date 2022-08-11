@@ -5,6 +5,7 @@ let colores = ["red", "blue", "green", "yellow", "purple", "orange"];
 document.querySelector("#boton-jugar").onclick = iniciarJuego;
 
 function iniciarJuego() {
+  ocultarBotonJugar();
   asignarColorAleatorioCartas();
   mostrarTablero();
 }
@@ -93,6 +94,19 @@ function mostrarTablero() {
 }
 
 function ocultarTablero() {
+  document.querySelector("#tablero").className = "oculto";
+}
+
+function mostrarBotonVolverJugar() {
+  document.querySelector("#boton-reiniciar-juego").className = " ";
+}
+
+function ocultarBotonVolverJugar() {
+  document.querySelector("#boton-reiniciar-juego").className = "oculto";
+}
+
+function ocultarBotonJugar() {
+  document.querySelector("#boton-jugar").className = "oculto";
 }
 
 function bloquearInputJugador() {
