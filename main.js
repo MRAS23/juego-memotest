@@ -22,6 +22,7 @@ function reiniciarJuego() {
   ocultarTodasLasCartas();
   asignarColorAleatorioCartas();
   contadorMovimientos = 0;
+  ocultarBotonVolverJugar();
   mostrarTablero();
 }
 
