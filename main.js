@@ -5,7 +5,24 @@ let colores = ["red", "blue", "green", "yellow", "purple", "orange"];
 document.querySelector("#boton-jugar").onclick = iniciarJuego;
 
 function iniciarJuego() {
+  ocultarBotonJugar();
   asignarColorAleatorioCartas();
+  mostrarTablero();
+}
+
+function ganarJuego() {
+  ocultarTablero();
+  mostrarBotonVolverJugar();
+}
+
+document.querySelector("#boton-reiniciar-juego").onclick = reiniciarJuego;
+
+function reiniciarJuego() {
+  colores = ["red", "blue", "green", "yellow", "purple", "orange"];
+  ocultarTodasLasCartas();
+  asignarColorAleatorioCartas();
+  contadorMovimientos = 0;
+  ocultarBotonVolverJugar();
   mostrarTablero();
 }
 
@@ -48,9 +65,10 @@ function manejarInputJugador(e) {
       ocultarCartas();
       desbloquearInputJugador();
     }, 1000);
-
-    console.log(verificarCoincidencias());
     cartasSeleccionadas = [];
+    if (colores.length === 0) {
+      ganarJuego();
+    }
   }
 }
 
@@ -80,6 +98,13 @@ function ocultarCartas() {
   });
 }
 
+function ocultarTodasLasCartas() {
+  $cartas.forEach(($carta) => {
+    $carta.style.backgroundColor = "black";
+    $carta.id = "";
+  });
+}
+
 function eliminarColorAcertado() {
   for (let i = 0; i < colores.length; i++) {
     if (colores[i] === cartasSeleccionadas[1]) {
@@ -89,13 +114,23 @@ function eliminarColorAcertado() {
 }
 
 function mostrarTablero() {
-  const $tablero = document.querySelector("#tablero");
-  $tablero.className = "container";
+  document.querySelector("#tablero").className = "container";
 }
 
 function ocultarTablero() {
-  const $tablero = document.querySelector("#tablero");
-  $tablero.className = "oculto";
+  document.querySelector("#tablero").className = "oculto";
+}
+
+function mostrarBotonVolverJugar() {
+  document.querySelector("#boton-reiniciar-juego").className = " ";
+}
+
+function ocultarBotonVolverJugar() {
+  document.querySelector("#boton-reiniciar-juego").className = "oculto";
+}
+
+function ocultarBotonJugar() {
+  document.querySelector("#boton-jugar").className = "oculto";
 }
 
 function bloquearInputJugador() {
