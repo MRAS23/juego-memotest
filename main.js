@@ -55,4 +55,11 @@ function mostrarCarta($carta) {
   setTimeout(function () {
     $carta.style.backgroundColor = "black";
   }, 500);
+
+function eliminarColorAcertado() {
+  for (let i = 0; i < colores.length; i++) {
+    if (colores[i] === cartasSeleccionadas[1]) {
+      colores.splice(i, 1);
+    }
+  }
 }
