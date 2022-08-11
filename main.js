@@ -26,6 +26,7 @@ function asignarColorAleatorioCartas() {
 }
 
 let cartasSeleccionadas = [];
+let contadorMovimientos = 0;
 
 function manejarInputJugador(e) {
   const $carta = e.target;
@@ -38,6 +39,7 @@ function manejarInputJugador(e) {
 
   if (cartasSeleccionadas.length === 2) {
     bloquearInputJugador();
+    contadorMovimientos++;
     if (verificarCoincidencias()) {
       eliminarColorAcertado();
       cartasSeleccionadas = [];
