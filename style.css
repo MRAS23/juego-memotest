@@ -33,3 +33,7 @@
 #orange {
   background-color: black;
 }
+
+.oculto {
+  display: none;
+}
