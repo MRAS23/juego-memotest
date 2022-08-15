@@ -18,6 +18,9 @@
       <header>
         <h1 class="display-1">Memotest</h1>
       </header>
+      <div class="col-md-12 text-center">
+        <button id="boton-jugar" class="btn btn-outline-primary btn-lg">Jugar</button>
+      </div>
     </div>
 
     <div id="tablero" class="oculto">
@@ -65,18 +68,19 @@
           <div class="carta"></div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2 id="contador-movimientos"></h2>
+        </div>
+      </div>
     </div>
 
-    <section>
-      <div class="oculto" id="contador-movimientos"></div>
-    </section>
-
-    <div class="container-pantalla-inicio">
-      <button id="boton-jugar" class="">Jugar</button>
-    </div>
-
-    <div class="container-pantalla-reinicio">
-      <button id="boton-reiniciar-juego" class="oculto">Volver a Jugar</button>
+    <div id="container-pantalla-reinicio" class="oculto">
+      <div class="col-md-12 text-center">
+        <h2 id="cantidad-movimientos"></h2>
+        <button id="boton-reiniciar-juego" class="btn btn-outline-success btn-lg">Volver a Jugar</button>
+      </div>
     </div>
 
     <script
