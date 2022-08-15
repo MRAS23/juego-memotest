@@ -96,7 +96,7 @@ function ocultarCartas() {
   $cartas.forEach(($carta) => {
     colores.forEach((color) => {
       if ($carta.id === color) {
-        $carta.style.backgroundColor = "black";
+        $carta.style.backgroundColor = "transparent";
       }
     });
   });
@@ -104,7 +104,7 @@ function ocultarCartas() {
 
 function ocultarTodasLasCartas() {
   $cartas.forEach(($carta) => {
-    $carta.style.backgroundColor = "black";
+    $carta.style.backgroundColor = "transparent";
     $carta.id = "";
   });
 }

@@ -1,37 +1,114 @@
+html {
+  font-size: 32px;
+}
+
+body {
+  background-color: rgb(196, 196, 196) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-flex {
+  margin-top: 50px;
+  font-family: "Shrikhand", cursive;
+}
+
+#container-pantalla-reinicio {
+  margin-top: 50px;
+  font-family: "Shrikhand", cursive;
+}
+
+.container-md {
+  margin-top: 50px;
+  font-family: "Shrikhand", cursive;
+}
+
 .carta {
   border-radius: 10px;
   height: 200px;
   cursor: pointer;
-  background-color: black;
   margin: 20px;
 }
 
-/* .carta:hover {
-  background-color: aquamarine;
-} */
-
-#red {
-  background-color: black;
+#boton-jugar {
+  margin-top: 100px;
+  height: 80px;
+  width: 220px;
+  color: white;
+  position: relative;
+  background-color: transparent;
+  border: none;
 }
 
-#blue {
-  background-color: black;
+#boton-jugar::after,
+#boton-jugar::before {
+  border: 3px solid white;
+  content: "";
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+
+  border-radius: 50px;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
 }
 
-#green {
-  background-color: black;
+#boton-jugar:hover::after {
+  transform: translate(5px, 5px);
 }
 
-#yellow {
-  background-color: black;
+#boton-reiniciar-juego {
+  margin-top: 100px;
+  height: 80px;
+  width: 400px;
+  color: white;
+  position: relative;
+  background-color: transparent;
+  border: none;
 }
 
-#purple {
-  background-color: black;
+#boton-reiniciar-juego::after,
+#boton-reiniciar-juego::before {
+  border: 3px solid white;
+  content: "";
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+
+  border-radius: 50px;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
 }
 
+#boton-reiniciar-juego:hover::after {
+  transform: translate(5px, 5px);
+}
+
+#red,
+#blue,
+#green,
+#yellow,
+#purple,
 #orange {
-  background-color: black;
+  color: white;
+  position: relative;
+  background-color: transparent;
+  border: 3px solid gray;
+}
+
+#red:hover,
+#blue:hover,
+#green:hover,
+#yellow:hover,
+#purple:hover,
+#orange:hover {
+  border: 3px solid white;
+  transition: 0.4s;
 }
 
 .oculto {
