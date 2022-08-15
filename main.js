@@ -6,17 +6,17 @@ document.querySelector("#boton-jugar").onclick = iniciarJuego;
 
 function iniciarJuego() {
   inicializarCantidadMovimientos();
-  ocultarPantallaInicio();
+  ocultarElemento(document.querySelector(".container-flex"));
   asignarColorAleatorioCartas();
   mostrarTablero();
-  mostrarContadorMovimientos();
+  mostrarElemento($contadorMovimientos);
 }
 
 function ganarJuego() {
-  ocultarTablero();
-  mostrarPantallaReinicio();
+  ocultarElemento(document.querySelector("#tablero"));
+  mostrarElemento(document.querySelector("#container-pantalla-reinicio"));
   actualizarMensajeContadorMovimientos();
-  ocultarContadorMovimientos();
+  ocultarElemento($contadorMovimientos);
 }
 
 document.querySelector("#boton-reiniciar-juego").onclick = reiniciarJuego;
@@ -26,7 +26,7 @@ function reiniciarJuego() {
   ocultarTodasLasCartas();
   asignarColorAleatorioCartas();
   inicializarCantidadMovimientos();
-  ocultarPantallaReinicio();
+  ocultarElemento(document.querySelector("#container-pantalla-reinicio"));
   mostrarTablero();
 }
 
@@ -121,32 +121,12 @@ function mostrarTablero() {
   document.querySelector("#tablero").className = "container-md";
 }
 
-function ocultarTablero() {
-  document.querySelector("#tablero").className = "oculto";
+function ocultarElemento(elementoHTML) {
+  elementoHTML.className = "oculto";
 }
 
-function mostrarPantallaInicio() {
-  document.querySelector(".container-flex").className = "";
-}
-
-function ocultarPantallaInicio() {
-  document.querySelector(".container-flex").className = "oculto";
-}
-
-function mostrarContadorMovimientos() {
-  $contadorMovimientos.className = "";
-}
-
-function ocultarContadorMovimientos() {
-  $contadorMovimientos.className = "oculto";
-}
-
-function mostrarPantallaReinicio() {
-  document.querySelector("#container-pantalla-reinicio").className = "";
-}
-
-function ocultarPantallaReinicio() {
-  document.querySelector("#container-pantalla-reinicio").className = "oculto";
+function mostrarElemento(elementoHTML) {
+  elementoHTML.className = "";
 }
 
 function bloquearInputJugador() {
