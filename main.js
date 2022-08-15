@@ -6,7 +6,7 @@ document.querySelector("#boton-jugar").onclick = iniciarJuego;
 
 function iniciarJuego() {
   inicializarCantidadMovimientos();
-  ocultarBotonJugar();
+  ocultarPantallaInicio();
   asignarColorAleatorioCartas();
   mostrarTablero();
   mostrarContadorMovimientos();
@@ -14,8 +14,9 @@ function iniciarJuego() {
 
 function ganarJuego() {
   ocultarTablero();
-  mostrarBotonVolverJugar();
+  mostrarPantallaReinicio();
   actualizarMensajeContadorMovimientos();
+  ocultarContadorMovimientos();
 }
 
 document.querySelector("#boton-reiniciar-juego").onclick = reiniciarJuego;
@@ -25,7 +26,7 @@ function reiniciarJuego() {
   ocultarTodasLasCartas();
   asignarColorAleatorioCartas();
   inicializarCantidadMovimientos();
-  ocultarBotonVolverJugar();
+  ocultarPantallaReinicio();
   mostrarTablero();
 }
 
@@ -117,27 +118,27 @@ function eliminarColorAcertado() {
 }
 
 function mostrarTablero() {
-  document.querySelector("#tablero").className = "container";
+  document.querySelector("#tablero").className = "container-md";
 }
 
 function ocultarTablero() {
   document.querySelector("#tablero").className = "oculto";
 }
 
-function mostrarBotonVolverJugar() {
+/* function mostrarBotonVolverJugar() {
   document.querySelector("#boton-reiniciar-juego").className = " ";
 }
 
 function ocultarBotonVolverJugar() {
   document.querySelector("#boton-reiniciar-juego").className = "oculto";
+} */
+
+function mostrarPantallaInicio() {
+  document.querySelector(".container-flex").className = "";
 }
 
-function mostrarBotonJugar() {
-  document.querySelector("#boton-jugar").className = "";
-}
-
-function ocultarBotonJugar() {
-  document.querySelector("#boton-jugar").className = "oculto";
+function ocultarPantallaInicio() {
+  document.querySelector(".container-flex").className = "oculto";
 }
 
 function mostrarContadorMovimientos() {
@@ -146,6 +147,14 @@ function mostrarContadorMovimientos() {
 
 function ocultarContadorMovimientos() {
   $contadorMovimientos.className = "oculto";
+}
+
+function mostrarPantallaReinicio() {
+  document.querySelector("#container-pantalla-reinicio").className = "";
+}
+
+function ocultarPantallaReinicio() {
+  document.querySelector("#container-pantalla-reinicio").className = "oculto";
 }
 
 function bloquearInputJugador() {
@@ -170,5 +179,6 @@ function contarMovimiento() {
 
 function actualizarMensajeContadorMovimientos() {
   const cantidadMovimientos = $contadorMovimientos.innerHTML;
-  $contadorMovimientos.innerHTML = `Ganaste en ${cantidadMovimientos} movimientos!`;
+  const $movimientosAlGanar = document.querySelector("#cantidad-movimientos");
+  $movimientosAlGanar.innerHTML = `Ganaste en ${cantidadMovimientos} movimientos!`;
 }
