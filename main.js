@@ -125,14 +125,6 @@ function ocultarTablero() {
   document.querySelector("#tablero").className = "oculto";
 }
 
-/* function mostrarBotonVolverJugar() {
-  document.querySelector("#boton-reiniciar-juego").className = " ";
-}
-
-function ocultarBotonVolverJugar() {
-  document.querySelector("#boton-reiniciar-juego").className = "oculto";
-} */
-
 function mostrarPantallaInicio() {
   document.querySelector(".container-flex").className = "";
 }
