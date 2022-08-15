@@ -31,7 +31,7 @@ function reiniciarJuego() {
 }
 
 function obtenerNumeroAleatorio() {
-  return Math.round(Math.random() * 11);
+  return Math.round(Math.random() * ($cartas.length - 1));
 }
 
 function asignarColorAleatorioCartas() {
