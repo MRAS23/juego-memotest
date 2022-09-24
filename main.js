@@ -47,6 +47,7 @@ function asignarColorAleatorioCartas() {
 }
 
 let cartasSeleccionadas = [];
+let $primerCarta = null;
 let $contadorMovimientos = document.querySelector("#contador-movimientos");
 
 function manejarInputJugador(e) {
@@ -54,6 +55,14 @@ function manejarInputJugador(e) {
 
   mostrarCarta($carta);
 
+  if ($primerCarta === null) {
+    $primerCarta = $carta;
+  } else {
+    if ($primerCarta === $carta) {
+      return;
+    }
+    $primerCarta = null;
+  }
   if (cartasSeleccionadas.length < 2) {
     cartasSeleccionadas.push($carta.id);
   }
