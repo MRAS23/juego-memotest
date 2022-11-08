@@ -28,6 +28,7 @@ function reiniciarJuego() {
   inicializarCantidadMovimientos();
   ocultarElemento(document.querySelector("#container-pantalla-reinicio"));
   mostrarTablero();
+  mostrarElemento($contadorMovimientos);
 }
 
 function obtenerNumeroAleatorio() {
@@ -38,10 +39,10 @@ function asignarColorAleatorioCartas() {
   for (let i = 0; i < colores.length; i++) {
     let numeroAleatorio = obtenerNumeroAleatorio();
     for (let j = 0; j < 2; j++) {
-      while ($cartas[numeroAleatorio].id !== "") {
+      while ($cartas[numeroAleatorio].className !== "carta") {
         numeroAleatorio = obtenerNumeroAleatorio();
       }
-      $cartas[numeroAleatorio].id = colores[i];
+      $cartas[numeroAleatorio].classList.add(colores[i]);
     }
   }
 }
@@ -64,7 +65,8 @@ function manejarInputJugador(e) {
     $primerCarta = null;
   }
   if (cartasSeleccionadas.length < 2) {
-    cartasSeleccionadas.push($carta.id);
+    const color = $carta.className.replace("carta ", "");
+    cartasSeleccionadas.push(color);
   }
 
   if (cartasSeleccionadas.length === 2) {
@@ -98,13 +100,14 @@ function verificarCoincidencias() {
 }
 
 function mostrarCarta($carta) {
-  $carta.style.backgroundColor = $carta.id;
+  const color = $carta.className.replace("carta ", "");
+  $carta.style.backgroundColor = color;
 }
 
 function ocultarCartas() {
   $cartas.forEach(($carta) => {
     colores.forEach((color) => {
-      if ($carta.id === color) {
+      if ($carta.className === `carta ${color}`) {
         $carta.style.backgroundColor = "transparent";
       }
     });
@@ -114,7 +117,7 @@ function ocultarCartas() {
 function ocultarTodasLasCartas() {
   $cartas.forEach(($carta) => {
     $carta.style.backgroundColor = "transparent";
-    $carta.id = "";
+    $carta.className = `carta`;
   });
 }
 
